@@ -1,10 +1,11 @@
-const express = require('express')
-const http = require('http')
+const express = require('express');
+const http = require('http');
 const socketIo = require("socket.io");
+const PORT = process.env.PORT || require("./config.json").SERVER.PORT;
 
 const app = express();
-const server = app.listen(2323, () => {
-    console.log("Server started at http://localhost:2323")
+const server = app.listen(PORT, () => {
+    console.log("Server started at http://localhost:" + PORT)
 });
 
 app.use(express.static("./public"));
